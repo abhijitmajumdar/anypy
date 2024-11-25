@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+install_files=$(mktemp -d)
+
+venv="${install_files}/venv"
+python -m venv "${venv}"
+pybin="${venv}/bin/python"
+
+${pybin} -m pip install pyinstaller
+pyinstallerbin="${venv}/bin/pyinstaller"
+${pyinstallerbin} --workpath "${install_files}/workpath" --specpath "${install_files}" --onefile --distpath ./ ./anypy.py
+
+rm -rf "${install_files}"
