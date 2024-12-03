@@ -10,7 +10,7 @@ curl -s https://raw.githubusercontent.com/abhijitmajumdar/anypy/refs/heads/main/
 ## Install standalone app
 ```bash
 mkdir -p ~/.local/bin/
-curl -L https://github.com/abhijitmajumdar/anypy/releases/download/20241125.1610/anypy -o ~/.local/bin/anypy
+curl -L https://github.com/abhijitmajumdar/anypy/releases/download/20241203.1504/anypy -o ~/.local/bin/anypy
 chmod +x ~/.local/bin/anypy
 ```
 
