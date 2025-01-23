@@ -17,7 +17,7 @@ if not (sys.version_info[0] >= 3 and sys.version_info[1] >= 7):
     raise RuntimeError('You need at least python3.7+ to run this tool!')
 
 ARCHITECTURES = [
-    'x86_64_v3',
+    'x86_64',
     'aarch64',
     'armv7',
 ]
@@ -98,6 +98,9 @@ def _cached_download(url: str, output: pathlib.Path):
 def _get_link(version: str, arch: str) -> str:
     if arch not in ARCHITECTURES:
         raise RuntimeError(f'Unsupported architecture: {arch}')
+    if arch == 'x86_64':
+        # As per https://gregoryszorc.com/docs/python-build-standalone/main/running.html
+        arch += '_v3'
     release = RELEASE_MAP[version]
     link = (
         'https://github.com/indygreg/python-build-standalone/releases/download/'
